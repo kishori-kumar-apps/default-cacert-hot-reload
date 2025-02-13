@@ -1,22 +1,23 @@
-package com.kk.cert;
+package com.kk.cert.service;
+
+import com.kk.cert.pojo.DefaultTrustStoreFile;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-public class CaCertChecker {
-    private final DefaultCaCertFile caCertFile;
+public class TrustStoreChecker {
+    private final DefaultTrustStoreFile caCertFile;
     private byte[] previousHash;
 
-    public CaCertChecker(){
-        this.caCertFile = DefaultCaCertFile.initializeWithDefault();
+    public TrustStoreChecker(){
+        this.caCertFile = DefaultTrustStoreFile.initializeWithDefault();
     }
 
-    public CaCertChecker(DefaultCaCertFile defaultCaCertFile) {
-        this.caCertFile = defaultCaCertFile;
+    public TrustStoreChecker(DefaultTrustStoreFile defaultTrustStoreFile) {
+        this.caCertFile = defaultTrustStoreFile;
     }
 
     public boolean hasCaCertChanged() {
